@@ -61,3 +61,43 @@
 - **افصل الحضور عن الصدق:** «البيان حاضر» غير «الإفصاح صادق».
 - **السقف تحقّقٌ لا إدانة:** 🔴 يعني «يُتحقَّق منه»، لا «سوء سلوك». ولا تسمية شخصٍ باتهام.
 - **التنوين على الآخِر** (حقاً لا حقًّا).
+
+
+---
+
+## عقد الإخراج تحت مِحَكّ القيادة (sidecar)
+
+عند التشغيل تحت `audit-orchestrator` — أي حين يتضمّن عقدُ الإدخال `"emit": "findings-sidecar"` — أخرِج، **إضافةً إلى التقرير النثريّ المعتاد**، ملفَّ ملاحظاتٍ مهيكلة باسم `ethics-integrity-auditor.findings.json` بالسكيما الموحّدة للمجموعة (مرجعها الناظم: `references/findings-schema.md` في مهارة القائد):
+
+```json
+{
+  "auditor": "ethics-integrity-auditor",
+  "family": "<العائلة من الفرز الموحّد>",
+  "degree_run": "basic | mid | advanced",
+  "layers_run": ["A", "B"],
+  "scope": "specific | comprehensive",
+  "coverage_note": "…",
+  "findings": [
+    {
+      "auditor": "ethics-integrity-auditor",
+      "finding_id": "eth-001",
+      "locus": { "chapter": "…", "page": 0, "paragraph": 0, "quote": "…", "anchor": "…" },
+      "family_lens": "…",
+      "category": "…",
+      "severity": "critical | major | minor",
+      "confidence": "deterministic | high | medium | low | unverifiable",
+      "asymmetric": true,
+      "ceiling": "requires-human-institutional-verification",
+      "why": "المعيار المسمّى الذي جعله خللاً…",
+      "repair": "الإصلاح ضمن الجدار الأخلاقيّ…",
+      "seam_ref": null,
+      "web_verified": false
+    }
+  ],
+  "skipped_reason": null
+}
+```
+
+قواعد إلزامية: كلُّ ملاحظةٍ حرجةٍ أو جوهريةٍ تحمل `quote` أو `anchor`؛ `confidence` على السلّم المتدرّج لا حكماً ثنائياً؛ الموقعُ أدقَّ ما يمكن (فصل + صفحة + فقرة) لأنّ دمج القائد يجري بالموقع. ولأنّ هذا المِحَكّ **لا تماثليّ**، اجعل `asymmetric: true` دائماً، وصُغ `why` دحضاً/تفريغاً («لم يُبرهَن على…») لا مصادقةً («مؤكَّدٌ أنّ…»). واجعل `ceiling` دائماً `"requires-human-institutional-verification"` — سقفٌ لا يُخرَق مهما علت الدرجة.
+
+خارج القائد، هذا الملفُّ اختياريٌّ ولا يغيّر شيئاً من التقرير النثريّ.

@@ -2,6 +2,9 @@
 
 # 🛡️ مِحَكّ الأخلاقيات والنزاهة — Ethics & Integrity Auditor
 
+> 🧠 بطاقة الدماغ (Obsidian): [[_brain/hubs/ethics|ethics]] · [[_brain/00-HOME|HOME]]
+
+
 مهارة [Claude Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) متخصّصة في **تدقيق جهاز الإفصاح والنزاهة** في البحث العلمي — للرسائل والأطاريح العربية والعراقية أساساً.
 
 مهمّتها الواحدة:
